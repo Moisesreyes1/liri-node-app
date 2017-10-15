@@ -1,3 +1,5 @@
+debugger;
+
 // Require keys and npm packages
 var keys = require("./keys");
 var twitter = require("twitter");
@@ -57,7 +59,7 @@ var spotify = new Spotify({
 	secret: "89cf8d5982b544c5ac9b42966cb9d5dc"
 });
 
-spotify.search ({ type: 'track', query: myMusic, limit: 1 }, function(err, data) {
+spotify.search ({ type: 'track', query: myMusic, limit : 1}, function(err, data) {
 	if (err) {
 		return console.log('Error occurred: ' + err);
 	}
@@ -66,10 +68,10 @@ spotify.search ({ type: 'track', query: myMusic, limit: 1 }, function(err, data)
 	var music = data.tracks.items;
 
 	for (var i = 0; i < music.length; i++) {
-		console.log("artist(s): " + music[i].artist);
-      	console.log("song name: " + music[i].name);
-      	console.log("preview song: " + music[i].preview_url);
-      	console.log("album: " + music[i].album.name);
+		console.log("Artist(s)/Group: " + music[i].artists[i].name);
+      	console.log("Song name: " + music[i].name);
+      	console.log("Preview song: " + music[i].preview_url);
+      	console.log("Album: " + music[i].album.name);
 	}
 });
 };
@@ -85,6 +87,7 @@ var choices = function(requestData, askData) {
 		break;
 		case "spotify-this-song":
 		mySpotify(askData);
+		break;
 
 	}
 };
