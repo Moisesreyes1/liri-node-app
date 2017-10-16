@@ -1,5 +1,3 @@
-debugger;
-
 // Require keys and npm packages
 var keys = require("./keys");
 var twitter = require("twitter");
@@ -63,7 +61,7 @@ spotify.search ({ type: 'track', query: myMusic, limit : 1}, function(err, data)
 	if (err) {
 		return console.log('Error occurred: ' + err);
 	}
-	console.log(data);
+	// console.log(data);
 
 	var music = data.tracks.items;
 
